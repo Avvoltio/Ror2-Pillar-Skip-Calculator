@@ -1,10 +1,816 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+<title>ROR2 Pillar Skip calculator</title>
+<link rel="stylesheet" href="CSS/Buttons.css">
+<h1>RISK OF RAIN 2 PLLIAR SKIP CALCULATOR</h1>
+<h2>Very Early prototoype</h2>
+</head>
 <body>
+<p>paragraph <u>underlined</u> and <strong>strong</strong> <span class="span-example"> And this has any style I want </span> </p>
+<p>Click to trigger a function that will output "Hello World":</p>
+<a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank">Opens tutorial in new tab</a>
 
-<h1>The button Element</h1>
 
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
- 
+<div name="Speed numbers" class="Outline" style="width:500px; height:300px; right:0px; position:absolute">
+	<div name="Walking speed" class="Outline"style="height:50px; width:500px">
+		<p class="Ror2_Font" style="color:#E8EEF4; height:50px width:100px; float:left;">Walking m/s</p>
+		<p type ="number" class="Ror2_Font" style="height:50px width:100px; float:left;" id="Walking_Speed_Num">7</p>
+		<p class="Ror2_Font" style="height:50px width:100px; float:right;" id="Walking_Speed_Percent">0%</p>
+	</div>
+	<div name="Running speed" class="Outline"style="height:50px;">
+		<p class="Ror2_Font" style="color:#6BBEFF; height:50px width:100px; float:left;">Running m/s</p>
+		<p class="Ror2_Font" style="height:50px width:100px; float:left;" id="Running_Speed_Num">10.15</p>
+		<p class="Ror2_Font" style="height:50px width:200px; float:right;" id="Running_Speed_Percent">0%</p>
+	</div>
+	<div name="Wax jump" class="Outline"style="height:50px;">
+				<p class="Ror2_Font" style="color:#267F00; height:50px width:100px; float:left;">Wax quaill m/s</p>
+		<p class="Ror2_Font" style="height:50px width:100px; float:left;" id="Wax_Speed_Num">10.15</p>
+		<p class="Ror2_Font" style="height:50px width:200px; float:right;" id="Wax_Speed_Percent">0%</p>
+	</div>
+	<div name="Skip_Potential" class="Outline" Style="height:80px; background-color:#111923;">
+		<p class="Ror2_Font" style="height:50px width:100px; float:Top; text-align:center;">SKIP POTENTIAL</p>
+		<p id="Skip_Potential_Percent" class="Ror2_Font" style="font-size:28px; text-align:center; ">0%<p>
+	</div>
+</div>
+
+
+
+<div name="Items" class="Outline" style="width:500px; height:1000px; position: relative;">
+
+	<div name="Goat buttons" class="Outline" style="width:200px;" >
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Goathoof_Benifit">0%</div>
+		<img src="Images\Goat_Hoof.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Goathoof_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Goathoof_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Hoof_Count_1" class="Input_button" type="number" name="Hoof_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Goathoof_Input_Submit()">
+				<!-- <p id="Hoof_Count_1_Text" class="Input_button_Text">0</p> -->
+
+			</div>
+		</div>
+	</div>
+	
+	<div name="Mocha buttons" class="Outline" style="width:200px;" >
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Mocha_Benifit">0%</div>
+		<img src="Images\Mocha.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Mocha_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Mocha_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Mochas_Count_1" class="Input_button" type="number" name="Mocha_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Mocha_Input_Submit()">
+
+			</div>
+		</div>
+	</div>
+	
+	<div name="Energy_Drink buttons" class="Outline" style="width:200px;" >
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Energy_Drink_Benifit">0%</div>
+		<img src="Images\Energy_Drink.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Energy_Drink_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Energy_Drink_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Energy_Drinks_Count_1" class="Input_button" type="number" name="Energy_Drink_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Energy_Drink_Input_Submit()">
+
+			</div>
+		</div>
+	</div>
+	
+	<div name="Warbanner buttons" class="Outline" style="width:200px; height:70px;" >
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Warbanner_Benifit">0%</div>
+			<img src="Images\Warbanner.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<input type="checkbox" id="Warbanner_Toggle" class="Toggle_button" onclick="Warbanner_Toggle()" style="margin-top: 15px; margin-left: 15px;">
+		</div>
+	</div>
+	
+	<div name="Syringe buttons" class="Outline" style="width:200px;" >
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Syringe_Benifit">0%</div>
+		<img src="Images\Syringe.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Syringe_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Syringe_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Syringes_Count" class="Input_button" type="number" name="Syringes_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Syringe_Input_Submit()">
+
+
+			</div>
+		</div>
+	</div>
+	
+	<div name="Magazine buttons" class="Outline" style="width:200px;" >
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Magazine_Benifit">0%</div>
+			<img src="Images\Magazine.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Magazine_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Magazine_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Magazines_Count" class="Input_button" type="number" name="Magazines_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Magazine_Input_Submit()">
+
+
+			</div>
+		</div>
+	</div>
+	
+	<div name="Red_whip buttons" class="Outline" style="width:200px; right: 95px; top: 0px; position:absolute; ">
+		<div class="Ror2_Font" style="height: 25px; width: 60px; float:right; margin-top: 15px;" id="Red_whip_Benifit">0%</div>
+			<img src="Images\Red_whip.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Red_whip_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Red_whip_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Red_whips_Count" class="Input_button" type="number" name="Red_whips_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Red_whip_Input_Submit()">
+
+
+			</div>
+		</div>
+	</div>
+	
+	<div name="Wax_quil buttons" class="Outline" style="width:200px; right: 95px; top: 75px; position:absolute; ">
+		<div class="Ror2_Font" style="color:#267F00; height: 25px; width: 60px; margin-top: 15px; position:absolute; right:0px; top:0px;" id="Wax_quil_Benifit">0%</div>
+			<img src="Images\Wax_quil.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Wax_quil_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Wax_quil_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Wax_quails_Count" class="Input_button" type="number" name="Wax_quails_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Wax_quil_Input_Submit()">
+			</div>
+		</div>
+	</div>
+	
+	<div name="Feather buttons" class="Outline" style="width:200px; right: 95px; top: 150px; position:absolute; ">
+		<div class="Ror2_Font" style="height: 25px; width: 60px; margin-top: 15px; position:absolute; right:0px; top:0px;" id="Feather_Benifit">0%</div>
+			<img src="Images\Feather.png" width="64" height="64" align="left" class="Image_Background">
+		<div name="Inputs" class="Outline" >
+			<button type="button" class="plus_button" onclick="Feather_Minus()">
+				<div class="button_fill">-</div>
+			</button>
+			<button type="button" class="plus_button" onclick="Feather_Plus()">
+				<div class="button_fill">+</div>
+			</button>
+			<div class="Outline">
+				<input id="Feathers_Count" class="Input_button" type="number" name="Feathers_Count" min="0" max="999" placeholder="0" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" oninput="Feather_Input_Submit()">
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<p id="demo"></p>
+
+<input type="checkbox">
+<input type="number" placeholder="20">
 </body>
+<script>
+var Goat_Hooves = 0;
+	var Goathoof_Strenght = 0.14; //Default 0.14
+var Mochas = 0;
+var Energy_Drinks = 0;
+var Warbanner_Toggle_Bool = 0;
+var Syringes = 0;
+var Magazines = 0;
+var Red_whips = 0;
+var Wax_quails = 0;
+var Feathers = 0;
+
+var Base_MS = 7; /* Base movementspeed*/
+var Run_Multiplier = 1.45 //Default 1.45
+var Base_Jump_Amount = 1; //Default 1
+
+var Jumping_Speed  = 15; //Default 15
+var Acceleration = 80; //Default 80
+var Air_control = 0.25; //Default 0.25
+
+var Gravity = 0.33; //Moon gravity 0.33, Normal 0.5
+var Location = "Tree_Support";
+
+var Tree_Support_Angle = 0.77064;
+
+function Goathoof_Plus() {
+  Goat_Hooves = Goat_Hooves +1
+  if(Goat_Hooves > 999)
+	{
+		 Goat_Hooves = 999
+		 CalculateSpeeds()
+	}
+  document.getElementById("Hoof_Count_1").value = Goat_Hooves;
+  CalculateSpeeds()
+  }
+  
+function Goathoof_Minus() {
+  Goat_Hooves = Goat_Hooves -1
+  if(Goat_Hooves < 0)
+	{
+		 Goat_Hooves = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Hoof_Count_1").value = Goat_Hooves;
+  CalculateSpeeds()
+  }
+
+function Goathoof_Input_Submit() {
+	Goat_Hooves = document.getElementById("Hoof_Count_1").value - 0 
+	if(Goat_Hooves > 999)
+	{
+		 Goat_Hooves = 999
+		 document.getElementById("Hoof_Count_1").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Goat_Hooves < 0) 
+	{
+		Goat_Hooves = 0
+		document.getElementById("Hoof_Count_1").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Hoof_Count_1").innerHTML = Goat_Hooves
+		console.log(Goat_Hooves);
+		CalculateSpeeds()
+	}
+	}
+	
+function Mocha_Plus() {
+  Mochas = Mochas +1
+  if(Mochas > 999)
+	{
+		 Mochas = 999
+		 CalculateSpeeds()
+	}
+  document.getElementById("Mochas_Count_1").value = Mochas;
+  CalculateSpeeds()
+  }
+  
+function Mocha_Minus() {
+  Mochas = Mochas -1
+  if(Mochas < 0)
+	{
+		 Mochas = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Mochas_Count_1").value = Mochas;
+  CalculateSpeeds()
+  }
+
+function Mocha_Input_Submit() {
+	Mochas = document.getElementById("Mochas_Count_1").value - 0 
+	if(Mochas > 999)
+	{
+		 Mochas = 999
+		 document.getElementById("Mochas_Count_1").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Mochas < 0) 
+	{
+		Mochas = 0
+		document.getElementById("Mochas_Count_1").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Mochas_Count_1").innerHTML = Mochas
+		console.log(Mochas);
+		CalculateSpeeds()
+	}
+	}
+	
+	function Energy_Drink_Plus() {
+  Energy_Drinks = Energy_Drinks +1;
+  if(Energy_Drinks > 999)
+	{
+		 Energy_Drinks = 999;
+		 CalculateSpeeds();
+	}
+  document.getElementById("Energy_Drinks_Count_1").value = Energy_Drinks;
+  CalculateSpeeds();
+  }
+  
+function Energy_Drink_Minus() {
+  Energy_Drinks = Energy_Drinks -1;
+  if(Energy_Drinks < 0)
+	{
+		 Energy_Drinks = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Energy_Drinks_Count_1").value = Energy_Drinks;
+  CalculateSpeeds()
+  }
+
+function Energy_Drink_Input_Submit() {
+	Energy_Drinks = document.getElementById("Energy_Drinks_Count_1").value - 0 
+	if(Energy_Drinks > 999)
+	{
+		 Energy_Drinks = 999
+		 document.getElementById("Energy_Drinks_Count_1").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Energy_Drinks < 0) 
+	{
+		Energy_Drinks = 0
+		document.getElementById("Energy_Drinks_Count_1").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Energy_Drinks_Count_1").innerHTML = Energy_Drinks
+		//console.log(Energy_Drinks);
+		CalculateSpeeds()
+	}
+	}
+function Warbanner_Toggle() {
+	if(Warbanner_Toggle_Bool == 1)
+	{
+		Warbanner_Toggle_Bool = 0;
+		CalculateSpeeds();
+	}
+	else {
+		Warbanner_Toggle_Bool = 1;;
+		CalculateSpeeds();
+	}
+	//console.log(Warbanner_Toggle_Bool);
+}
+
+	function Syringe_Plus() {
+  Syringes = Syringes +1;
+  if(Syringes > 999)
+	{
+		 Syringes = 999;
+		 CalculateSpeeds();
+	}
+  document.getElementById("Syringes_Count").value = Syringes;
+  CalculateSpeeds();
+ // console.log(Syringes + " Syringes");
+  }
+  
+function Syringe_Minus() {
+  Syringes = Syringes -1;
+  if(Syringes < 0)
+	{
+		 Syringes = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Syringes_Count").value = Syringes;
+  CalculateSpeeds()
+  }
+
+function Syringe_Input_Submit() {
+	Syringes = document.getElementById("Syringes_Count").value - 0 
+	if(Syringes > 999)
+	{
+		 Syringes = 999
+		 document.getElementById("Syringes_Count").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Syringes < 0) 
+	{
+		Syringes = 0
+		document.getElementById("Syringes_Count").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Syringes_Count").innerHTML = Syringes
+	//	console.log(Syringes + " Syringes");
+		CalculateSpeeds()
+	}
+	
+}
+
+	function Magazine_Plus() {
+  Magazines = Magazines +1;
+  if(Magazines > 999)
+	{
+		 Magazines = 999;
+		 CalculateSpeeds();
+	}
+  document.getElementById("Magazines_Count").value = Magazines;
+  CalculateSpeeds();
+ // console.log(Magazines + " Mags");
+  }
+  
+function Magazine_Minus() {
+  Magazines = Magazines -1;
+  if(Magazines < 0)
+	{
+		 Magazines = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Magazines_Count").value = Magazines;
+  CalculateSpeeds()
+  }
+
+function Magazine_Input_Submit() {
+	Magazines = document.getElementById("Magazines_Count").value - 0 
+	if(Magazines > 999)
+	{
+		 Magazines = 999
+		 document.getElementById("Magazines_Count").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Magazines < 0) 
+	{
+		Magazines = 0
+		document.getElementById("Magazines_Count").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Magazines_Count").innerHTML = Magazines
+//		console.log(Magazines);
+		CalculateSpeeds()
+	}
+	
+}
+
+	function Red_whip_Plus() {
+  Red_whips = Red_whips +1;
+  if(Red_whips > 999)
+	{
+		 Red_whips = 999;
+		 CalculateSpeeds();
+	}
+  document.getElementById("Red_whips_Count").value = Red_whips;
+  CalculateSpeeds();
+ // console.log(Red_whips);
+  }
+  
+function Red_whip_Minus() {
+  Red_whips = Red_whips -1;
+  if(Red_whips < 0)
+	{
+		 Red_whips = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Red_whips_Count").value = Red_whips;
+  CalculateSpeeds()
+  }
+
+function Red_whip_Input_Submit() {
+	Red_whips = document.getElementById("Red_whips_Count").value - 0 
+	if(Red_whips > 999)
+	{
+		 Red_whips = 999
+		 document.getElementById("Red_whips_Count").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Red_whips < 0) 
+	{
+		Red_whips = 0
+		document.getElementById("Red_whips_Count").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Red_whips_Count").innerHTML = Red_whips
+	//	console.log(Red_whips);
+		CalculateSpeeds()
+	}
+	
+}
+
+function Wax_quil_Plus() {
+  Wax_quails = Wax_quails +1;
+  if(Wax_quails > 999)
+	{
+		 Wax_quails = 999;
+		 CalculateSpeeds();
+	}
+  document.getElementById("Wax_quails_Count").value = Wax_quails;
+  CalculateSpeeds();
+ // console.log(Wax_quails + " Wax quails");
+  }
+  
+function Wax_quil_Minus() {
+  Wax_quails = Wax_quails -1;
+  if(Wax_quails < 0)
+	{
+		 Wax_quails = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Wax_quails_Count").value = Wax_quails;
+  CalculateSpeeds()
+  }
+
+function Wax_quil_Input_Submit() {
+	Wax_quails = document.getElementById("Wax_quails_Count").value - 0 
+	if(Wax_quails > 999)
+	{
+		 Wax_quails = 999
+		 document.getElementById("Wax_quails_Count").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Wax_quails < 0) 
+	{
+		Wax_quails = 0
+		document.getElementById("Wax_quails_Count").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Wax_quails_Count").innerHTML = Wax_quails
+	//	console.log(Wax_quails);
+		CalculateSpeeds()
+	}
+	
+}
+
+function Feather_Plus() {
+  Feathers = Feathers + 1;
+  if(Feathers > 999)
+	{
+		 Feathers = 999;
+		 CalculateSpeeds();
+	}
+  document.getElementById("Feathers_Count").value = Feathers;
+  CalculateSpeeds();
+  console.log(Feathers + " Feathers");
+  }
+  
+function Feather_Minus() {
+  Feathers = Feathers -1;
+  if(Feathers < 0)
+	{
+		 Feathers = 0
+		 CalculateSpeeds()
+	}
+  document.getElementById("Feathers_Count").value = Feathers;
+  CalculateSpeeds()
+  }
+
+function Feather_Input_Submit() {
+	Feathers = document.getElementById("Feathers_Count").value - 0 
+	if(Feathers > 999)
+	{
+		 Feathers = 999
+		 document.getElementById("Feathers_Count").innerHTML = 999
+		 CalculateSpeeds()
+	}
+	else if (Feathers < 0) 
+	{
+		Feathers = 0
+		document.getElementById("Feathers_Count").innerHTML = 0
+		CalculateSpeeds()
+	}
+	else 
+	{
+		document.getElementById("Feathers_Count").innerHTML = Feathers
+//		console.log(Feathers);
+		CalculateSpeeds()
+	}
+	
+}
+
+function CalculateSpeeds() {
+
+	let Walkspeed_Calculation = Base_MS * (1 + ((Goathoof_Strenght * Goat_Hooves) + (0.07 * Mochas) + (0.3 * Warbanner_Toggle_Bool) + (0.3 * Red_whips))) ;
+	let Walkspeed_Calculation_Percent = 0 + (0.07 * Mochas) + (Goathoof_Strenght * Goat_Hooves) + (0.3 * Warbanner_Toggle_Bool) + (0.3 * Red_whips);
+	
+	let Runspeed_Calculation = (Walkspeed_Calculation * Run_Multiplier) + (Base_MS * (0.25 * Energy_Drinks));
+	let Runspeed_Calculation_Percent =  (Walkspeed_Calculation_Percent * Run_Multiplier) + (Energy_Drinks * 0.25);
+	
+		document.getElementById("Walking_Speed_Num").innerHTML = Walkspeed_Calculation.toFixed(2);
+		document.getElementById("Walking_Speed_Percent").innerHTML = (Walkspeed_Calculation_Percent * 100).toFixed(0) + "%";
+		
+		document.getElementById("Running_Speed_Num").innerHTML = Runspeed_Calculation.toFixed(2);
+		document.getElementById("Running_Speed_Percent").innerHTML = (Runspeed_Calculation_Percent * 100).toFixed(0) + "%";
+		
+	let Running_Speed_Air = Runspeed_Calculation / ((21) / (Acceleration / 80));
+	let Running_Speed_Ground = Running_Speed_Air * 4
+	console.log(Running_Speed_Ground.toFixed(2) + " Ground " + Running_Speed_Air.toFixed(2) + " Air");
+		
+	/*WAX QUAIL CALULATION */
+	num = Acceleration * Air_control; 
+	num2 = Math.sqrt(((((Runspeed_Calculation / (Base_MS * Run_Multiplier)) * Run_Multiplier) * (10 * Wax_quails))) / num);
+	num3 = Runspeed_Calculation / num ;
+	horizontalbonus = (num2 + num3) / num3;
+	Wax_Calculation = Math.sqrt(((horizontalbonus * Runspeed_Calculation )**2) + (Jumping_Speed **2));
+	
+	Wax_Without_Wax = Math.sqrt((Runspeed_Calculation**2) + (Jumping_Speed **2));
+	Wax_Calculation_No_Jump = Math.sqrt((horizontalbonus * Runspeed_Calculation )**2);
+
+	
+	let Wax_Calculation_Percent = ((Wax_Calculation / Wax_Without_Wax) - 1) *100;
+	document.getElementById("Wax_Speed_Percent").innerHTML = (Wax_Calculation_Percent).toFixed(0) + "%";
+	
+	//console.log(horizontalbonus + " Horizontal bonus");
+	//console.log(Wax_Without_Wax + " Run + Jump");
+	//console.log(Wax_Calculation_Percent.toFixed(2) + " Percent Wax");
+	//	console.log(Wax_Calculation_No_Jump.toFixed(2) + " wax buff no jump");
+	//	console.log((Wax_Calculation_No_Jump - Running_Speed_Air).toFixed(2) + " wax buff no jump");
+	
+
+	
+	let Rex_Disperse_Calculation = Math.sqrt(8 * (2 * (0 - (0 - (Runspeed_Calculation / Base_MS * 80)))));
+	
+	// Slope Speed calculator V2
+	let	V_Slope_Speed_X = (Runspeed_Calculation - 0.42);
+	let	V_Slope_Speed_C = (V_Slope_Speed_X * 1.64594);
+	let	V_Slope_Speed_Y = (Math.sqrt((V_Slope_Speed_C**2) - (V_Slope_Speed_X **2))).toFixed(2);
+		console.log(V_Slope_Speed_Y + " Running up slope speed");  //Seems to work well!
+		
+		
+		
+	
+		Vertical_distance = 0.0001;
+		Vertical_Velocity = 0;
+		
+		Horizontal_Distance = 0;
+		Horizontal_Direction = "Right";
+		Seconds_Passed = 0;
+		
+		Slope_bonus = 0;
+		
+		Jump_amount = Base_Jump_Amount;
+		Feather_amount = Feathers;
+		
+		// 88.72 Velocity to make it to 194.18M to top
+		Jump_V_sec = (Jumping_Speed + Gravity) / (Gravity * 60);
+		Jump_V_vd = (Jumping_Speed * Jump_V_sec) / 2;
+	
+
+		
+		Feather_Jump_V = Jumping_Speed * 1.5; //22.5
+		Feather_Jump_V_sec = (Feather_Jump_V + Gravity) / (Gravity * 60);
+		Feather_Jump_V_sec_total = (Feather_Jump_V_sec * Feathers) + Jump_V_sec
+		Feather_Jump_V_vd = (Feather_Jump_V * Feather_Jump_V_sec) / 2;
+		Feather_Jump_V_vd_total = (Feather_Jump_V_vd * Feathers) + Jump_V_vd
+		
+		
+		
+
+		console.log(Feather_Jump_V_vd_total.toFixed(2) + " Jump distance " + Feather_Jump_V_sec_total.toFixed(2) + "s");
+		RunningTo_Slope_Dis = (25.6 + (Runspeed_Calculation / 2))
+		RunningTo_Slope_sec =  RunningTo_Slope_Dis / Runspeed_Calculation;
+		
+			//123.44m top of the slant, 25.6, to the edgge at 0
+			
+		console.log(RunningTo_Slope_sec.toFixed(2) + " s getting against the slope");
+		
+			while(Feather_amount > 0 || Jump_amount > 0)
+			{
+
+				if (Jump_amount > 0)
+					{
+					Seconds_Passed = Seconds_Passed + Jump_V_sec;
+					Vertical_distance = Vertical_distance + Jump_V_vd;
+					Jump_amount = Jump_amount - 1;
+					}
+				else if (Feather_amount > 0) 
+					{
+					if (Seconds_Passed * Runspeed_Calculation > RunningTo_Slope_Dis - ((Vertical_distance / 123.44)*RunningTo_Slope_Dis))
+						{
+						console.log("in slope threshold");
+						console.log(Seconds_Passed.toFixed(2) + "'s have passed");
+						console.log(Vertical_distance.toFixed(2) + "'s crossed at");
+						}
+					else
+						{
+						console.log(Seconds_Passed * Runspeed_Calculation + " > " + (RunningTo_Slope_Dis - ((Vertical_distance / 123.44)*RunningTo_Slope_Dis)));
+						console.log(Vertical_distance.toFixed(2) + " Vertical distance");
+						console.log(Seconds_Passed.toFixed(2) + "'s have passed");
+						}
+					Feather_amount = Feather_amount -1;
+					Vertical_distance = Vertical_distance + Feather_Jump_V_vd;
+					Seconds_Passed = Seconds_Passed + Feather_Jump_V_sec
+					}
+				
+		/*
+				if(Seconds_Passed * Runspeed_Calculation > RunningTo_Slope_Dis - ((Vertical_distance / 123.44)*RunningTo_Slope_Dis)	)
+					{
+					Horizontal_Direction = "Left";
+					//console.log(Seconds_Passed - (RunningTo_Slope_sec - ((Vertical_distance / 123.44)*RunningTo_Slope_sec)) + " Test");
+					Feather_Jump_V_sec / (Seconds_Passed - (RunningTo_Slope_sec - ((Vertical_distance / 123.44)*RunningTo_Slope_sec)))
+					}
+				//console.log(Seconds_Passed * Runspeed_Calculation + " Test 2");
+			*/	//console.log(RunningTo_Slope_Dis - ((Vertical_distance / 123.44)*RunningTo_Slope_Dis) + " Test 3");
+				
+			}
+			
+				
+		//console.log((Jumping_Speed / (Gravity * 60)).toFixed(2) + "'s to " + Jump_V_vd.toFixed(2) + "'m" + " Jump"); // Jump
+		//console.log(Jumping_Speed + " Jump Velocity");	
+			
+		//console.log((Feather_Jump_V / (Gravity * 60)).toFixed(2) + "'s to " + Feather_Jump_V_vd.toFixed(2) + "'m" + " Feather"); // Feather jump
+		//console.log(Feather_Jump_V + " Feather jump strenght");
+		
+
+		
+		
+		
+		
+	/*%BENIFIT FOR INDIVIDUAL ITEMS */
+	let Goat_Hooves_Benifit_Calculation = (((Runspeed_Calculation - (Base_MS * Run_Multiplier)) / (55.62 - (Base_MS * Run_Multiplier)))*100);	
+	
+													/* (runspeed*Hoof) / (55.62 - runspeed) ; */
+	Goat_Hooves_Benifit_Calculation = ( (((Base_MS * Run_Multiplier) * ((Goathoof_Strenght * Goat_Hooves))) / (55.62 - (Base_MS * Run_Multiplier))) * 100 );
+		if((Base_MS * Run_Multiplier) > 55.62)
+			{
+			Goat_Hooves_Benifit_Calculation = 100;
+			}
+
+	document.getElementById("Goathoof_Benifit").innerHTML = Goat_Hooves_Benifit_Calculation.toFixed(0) + "%";
+	
+	//console.log(Goat_Hooves_Benifit_Calculation);
+	
+	let Mochas_Benifit_Calculation = (0.001 + Mochas) * (100 / 64);
+	document.getElementById("Mocha_Benifit").innerHTML = Mochas_Benifit_Calculation.toFixed(0) + "%";
+	
+	let Energy_Drinks_Benifit_Calculation = (0.001 + Energy_Drinks) * (100 / 26);
+	document.getElementById("Energy_Drink_Benifit").innerHTML = Energy_Drinks_Benifit_Calculation.toFixed(0) + "%";
+	
+	let Warbanner_Benifit_Calculation = (0.001 + (30/448 * Warbanner_Toggle_Bool)) * 100;
+	document.getElementById("Warbanner_Benifit").innerHTML = Warbanner_Benifit_Calculation.toFixed(0) + "%";
+	
+	let Red_whip_Benifit_Calculation = (0.001 + Red_whips) * (100 / 15);
+	document.getElementById("Red_whip_Benifit").innerHTML = Red_whip_Benifit_Calculation.toFixed(0) + "%";
+
+	
+	document.getElementById("Wax_Speed_Num").innerHTML = Wax_Calculation.toFixed(2);
+//	let Wax_quail_Benifit_Calculation =((Wax_Calculation - Math.sqrt((((Base_MS * Run_Multiplier)**2) + (Jumping_Speed **2)))) / 
+		//								((117.46 + ((Runspeed_Calculation - (Base_MS * Run_Multiplier)) / 6.3)) - Math.sqrt((((Base_MS * Run_Multiplier)**2) + (Jumping_Speed **2))))*100 );
+
+	let Wax_RUNSPEED_Reduction = (1 -(Runspeed_Calculation_Percent) * 0.01157159221);
+	let Wax_quail_Tree_Support_Jump = ((((Wax_Calculation_No_Jump) * (Tree_Support_Angle* Wax_RUNSPEED_Reduction))) ) 
+	console.log(Wax_quail_Tree_Support_Jump + " Wax slope Y Velocity");
+	//console.log(Wax_RUNSPEED_Reduction + " Y velocity from slope");
+	//console.log(Runspeed_Calculation_Percent + " Y velocity from slope");	
+	
+	/*
+	let Speed_Increase_WaxLimit = ((117.46 - 1.93/2 ) + Running_Speed_Ground / 2).toFixed(3);
+	console.log(Speed_Increase_WaxLimit + " Speed_Increse_WaxLimit");
+	let Wax_quail_Benifit_Calculation =((Wax_Calculation - Math.sqrt((((Base_MS * Run_Multiplier)**2) + (Jumping_Speed **2)))) / 
+									((117.46 + ((Runspeed_Calculation - (Base_MS * Run_Multiplier)) / 6.3)) - Math.sqrt((((Base_MS * Run_Multiplier)**2) + (Jumping_Speed **2))))*100 );
+	*/	
+	
+	let Wax_quail_Benifit_Calculation = (Wax_quail_Tree_Support_Jump / 88.1) * 100;
+	
+	//console.log(Wax_quail_Benifit_Calculation);
+	//console.log(((Runspeed_Calculation - (Base_MS * Run_Multiplier)) / 10)); // The more speed I have the higher the wax threshold)
+	if(Wax_quails == 0) {Wax_quail_Benifit_Calculation = 0};
+	document.getElementById("Wax_quil_Benifit").innerHTML = Wax_quail_Benifit_Calculation.toFixed(0) + "%";
+	
+	let MovementSpeed_Benifit_Calculation = (100 / (55.62 - (Base_MS * Run_Multiplier))) * (Runspeed_Calculation - (Base_MS * Run_Multiplier)) ;
+	
+	//let Feather_Benifit_Calculation = ((Feather_Height - 5.809) / ( 174.44 - 5.81 )) * 100 ;
+	//console.log(Feather_Benifit_Calculation);
+	//document.getElementById("Feather_Benifit").innerHTML = Feather_Benifit_Calculation.toFixed(0) + "%";
+	/*document.getElementById("Goathoof_Benifit").innerHTML = Goathoof_Benifit_Calculation.toFixed(0) + "%";*/
+	
+	/*%PILLAR SKIP POTENTIAL */
+	const largest = Math.max(MovementSpeed_Benifit_Calculation, Wax_quail_Benifit_Calculation);
+	
+	document.getElementById("Skip_Potential_Percent").innerHTML = largest.toFixed(0) + "%";
+	
+	
+
+	
+
+
+	
+	
+
+
+	
+	
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+
+CalculateSpeeds()
+</script>
 </html>
+
+
